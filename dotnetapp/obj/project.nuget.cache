@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "k6BV+y0r1lo=",
+  "success": true,
+  "projectFilePath": "D:\\vehicle-loan-application\\dotnetapp\\dotnetapp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Zuhaib\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.7\\microsoft.aspnetcore.openapi.9.0.7.nupkg.sha512",
+    "C:\\Users\\Zuhaib\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
