@@ -1,4 +1,4 @@
-﻿namespace dotnetapp.Models
+﻿namespace dotnetapp.Models.Domain
 {
     public class LoanApplication
     {

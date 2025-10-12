@@ -1,4 +1,4 @@
-﻿using dotnetapp.Models;
+﻿using dotnetapp.Models.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace dotnetapp.Data

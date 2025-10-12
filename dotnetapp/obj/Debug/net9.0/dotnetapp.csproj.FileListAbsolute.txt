@@ -155,10 +155,12 @@ D:\vehicle-loan-application\dotnetapp\obj\Debug\net9.0\staticwebassets.build.jso
 D:\vehicle-loan-application\dotnetapp\obj\Debug\net9.0\staticwebassets.build.json.cache
 D:\vehicle-loan-application\dotnetapp\obj\Debug\net9.0\staticwebassets.development.json
 D:\vehicle-loan-application\dotnetapp\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-D:\vehicle-loan-application\dotnetapp\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\vehicle-loan-application\dotnetapp\obj\Debug\net9.0\dotnetapp.csproj.Up2Date
 D:\vehicle-loan-application\dotnetapp\obj\Debug\net9.0\dotnetapp.dll
 D:\vehicle-loan-application\dotnetapp\obj\Debug\net9.0\refint\dotnetapp.dll
 D:\vehicle-loan-application\dotnetapp\obj\Debug\net9.0\dotnetapp.pdb
 D:\vehicle-loan-application\dotnetapp\obj\Debug\net9.0\dotnetapp.genruntimeconfig.cache
 D:\vehicle-loan-application\dotnetapp\obj\Debug\net9.0\ref\dotnetapp.dll
+D:\vehicle-loan-application\dotnetapp\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\vehicle-loan-application\dotnetapp\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\vehicle-loan-application\dotnetapp\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
