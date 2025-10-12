@@ -10,10 +10,10 @@ namespace dotnetapp.Controllers
     [ApiController]
     public class LoanController : ControllerBase
     {
-        private readonly ApplicationDbContext dbContext;
-        public LoanController(ApplicationDbContext dbContext)
+        private readonly ILoanService loanService;
+        public LoanController(ILoanService loanService)
         {
-            this.dbContext = dbContext;
+            this.loanService = loanService;
         }
 
         [HttpPost]
@@ -27,8 +27,7 @@ namespace dotnetapp.Controllers
                 MaximumAmount = request.MaximumAmount
             };
 
-            await dbContext.Loans.AddAsync(loan);
-            await dbContext.SaveChangesAsync();
+            await loanService.CreateAsync(loan);
 
             var response = new LoanDto
             {
