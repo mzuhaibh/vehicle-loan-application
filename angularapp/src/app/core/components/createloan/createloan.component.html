@@ -1,0 +1,32 @@
+<div class="container">
+
+    <br>
+
+    <h4>Create Loan</h4>
+    
+    <form (ngSubmit)="createLoan()">
+        <div class="form-group">
+            <label class="form-label">Loan Type</label>
+            <input name="loanType" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Description</label>
+            <input name="description" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Interest Rate</label>
+            <input name="interestRate" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Maximum Amount</label>
+            <input name="maximumAmount" class="form-control"/>
+        </div>
+        
+        <br>
+
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</div>
