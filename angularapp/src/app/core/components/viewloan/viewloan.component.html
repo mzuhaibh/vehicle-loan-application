@@ -1,4 +1,31 @@
 <br>
+
 <div class="container">
     <h4>Vehicle Loans</h4>
 </div>
+
+<ng-container *ngIf="loans">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Loan Type</th>
+                <th>Description</th>
+                <th>Interest Rate</th>
+                <th>Maximum Amount</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let loan of loans">
+                <td>{{loan.loanType}}</td>
+                <td>{{loan.description}}</td>
+                <td>{{loan.interestRate}}%</td>
+                <td>{{loan.maximumAmount}}</td>
+                <td>
+                    <button class="btn btn-primary">Edit</button>&nbsp;
+                    <button class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>
