@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { Loan } from '../../models/loan.model';
 import { LoanService } from '../../services/loan.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createloan',
@@ -12,7 +13,7 @@ export class CreateloanComponent implements OnDestroy {
   model: Loan;
   private createLoanSubscription?: Subscription;
 
-  constructor(private loanService: LoanService) {
+  constructor(private loanService: LoanService, private router: Router) {
     this.model = {
       loanType: '',
       description: '',
@@ -26,6 +27,7 @@ export class CreateloanComponent implements OnDestroy {
     .subscribe({
       next: (response) => {
         console.log('Loan created successfully!');
+        this.router.navigate(['admin/loans']);
       }
     })
   }
