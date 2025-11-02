@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Loan } from '../../models/loan.model';
+import { LoanService } from '../../services/loan.service';
 
 @Component({
   selector: 'app-createloan',
@@ -9,7 +10,7 @@ import { Loan } from '../../models/loan.model';
 export class CreateloanComponent {
   model: Loan;
 
-  constructor() {
+  constructor(private loanService: LoanService) {
     this.model = {
       loanType: '',
       description: '',
@@ -19,6 +20,11 @@ export class CreateloanComponent {
   }
 
   createLoan() {
-
+    this.loanService.createLoan(this.model)
+    .subscribe({
+      next: (response) => {
+        console.log('Loan created successfully!'); 
+      }
+    })
   }
 }
