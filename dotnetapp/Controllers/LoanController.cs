@@ -41,7 +41,7 @@ namespace dotnetapp.Controllers
             return Ok(response);
         }
 
-        [HttpGet]
+        [HttpGet("/api/Loans")]
         public async Task<IActionResult> GetAllLoans()
         {
             var loans = await loanService.GetAllAsync();
