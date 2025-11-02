@@ -1,5 +1,6 @@
 ﻿using dotnetapp.Data;
 using dotnetapp.Models.Domain;
+using Microsoft.EntityFrameworkCore;
 
 public class LoanService : ILoanService
 {
@@ -16,5 +17,10 @@ public class LoanService : ILoanService
         await dbContext.SaveChangesAsync();
 
         return loan;
+    }
+
+    public async Task<IEnumerable<Loan>> GetAllAsync()
+    {
+        return await dbContext.Loans.ToListAsync();
     }
 }

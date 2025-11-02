@@ -40,5 +40,26 @@ namespace dotnetapp.Controllers
 
             return Ok(response);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllLoans()
+        {
+            var loans = await loanService.GetAllAsync();
+            var response = new List<LoanDto>();
+
+            foreach(var loan in loans)
+            {
+                response.Add(new LoanDto
+                {
+                    LoanId = loan.LoanId,
+                    LoanType = loan.LoanType,
+                    Description = loan.Description,
+                    InterestRate = loan.InterestRate,
+                    MaximumAmount = loan.MaximumAmount
+                });
+            }
+
+            return Ok(response);
+        }
     }
 }
