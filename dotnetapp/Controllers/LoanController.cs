@@ -16,7 +16,7 @@ namespace dotnetapp.Controllers
             this.loanService = loanService;
         }
 
-        [HttpPost]
+        [HttpPost("/api/loan")]
         public async Task<IActionResult> CreateLoan(LoanRequestDto request)
         {
             var loan = new Loan
@@ -27,21 +27,17 @@ namespace dotnetapp.Controllers
                 MaximumAmount = request.MaximumAmount
             };
 
-            await loanService.CreateAsync(loan);
+            bool result = await loanService.CreateAsync(loan);
 
-            var response = new LoanDto
+            if(result)
             {
-                LoanId = loan.LoanId,
-                LoanType = loan.LoanType,
-                Description = loan.Description,
-                InterestRate = loan.InterestRate,
-                MaximumAmount = loan.MaximumAmount
-            };
+                return Ok("Loan created successfully!");
+            }
 
-            return Ok(response);
+            return Conflict("Loan with this type already exists!");
         }
 
-        [HttpGet("/api/Loans")]
+        [HttpGet("/api/loans")]
         public async Task<IActionResult> GetAllLoans()
         {
             var loans = await loanService.GetAllAsync();

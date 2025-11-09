@@ -2,7 +2,7 @@
 
 public interface ILoanService
 {
-    Task<Loan> CreateAsync(Loan loan);
+    Task<bool> CreateAsync(Loan loan);
 
     Task<IEnumerable<Loan>> GetAllAsync();
 

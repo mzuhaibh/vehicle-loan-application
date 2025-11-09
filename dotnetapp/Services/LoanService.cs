@@ -11,12 +11,19 @@ public class LoanService : ILoanService
         this.dbContext = dbContext;
     }
 
-    public async Task<Loan> CreateAsync(Loan loan)
+    public async Task<bool> CreateAsync(Loan loan)
+    {
+        Loan loanInDb = await dbContext.Loans.FirstOrDefaultAsync(loanObj => loanObj.LoanType == loan.LoanType);
+
+        if (loanInDb == null)
         {
             await dbContext.Loans.AddAsync(loan);
             await dbContext.SaveChangesAsync();
 
-        return loan;
+            return true;
+        }
+
+        return false;
     }
 
     public async Task<IEnumerable<Loan>> GetAllAsync()
