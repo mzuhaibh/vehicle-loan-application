@@ -1,0 +1,34 @@
+<div class="container">
+
+    <br>
+
+    <h4>Edit Loan</h4>
+    
+    <ng-container *ngIf="loan">
+        <form>
+            <div class="form-group">
+                <label class="form-label">Loan Type</label>
+                <input name="loanType" class="form-control" [(ngModel)]="loan.loanType"/>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Description</label>
+                <input name="description" class="form-control" [(ngModel)]="loan.description"/>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Interest Rate</label>
+                <input name="interestRate" class="form-control" [(ngModel)]="loan.interestRate"/>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Maximum Amount</label>
+                <input name="maximumAmount" class="form-control" [(ngModel)]="loan.maximumAmount"/>
+            </div>
+            
+            <br>
+
+            <button class="btn btn-primary" (click)="editLoan()">Edit</button>&nbsp;
+        </form>&nbsp;
+    </ng-container>
+</div>
