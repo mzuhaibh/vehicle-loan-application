@@ -61,5 +61,50 @@ namespace dotnetapp.Controllers
 
             return Ok(response);
         }
+
+        [HttpGet("/api/loans/{loanId}")]
+        public async Task<IActionResult> GetLoanById(int loanId)
+        {
+            var loan = await loanService.GetByIdAsync(loanId);
+
+            if(loan  == null)
+            {
+                return NotFound("Loan not found!");
+            }
+
+            var response = new LoanDto
+            {
+                LoanId = loan.LoanId,
+                LoanType = loan.LoanType,
+                Description = loan.Description,
+                InterestRate = loan.InterestRate,
+                MaximumAmount = loan.MaximumAmount,
+            };
+
+            return Ok(response);
+        }
+
+        [HttpPut("/api/loan")]
+        public async Task<IActionResult> UpdateLoan(LoanRequestDto request)
+        {
+            var loan = new Loan
+            {
+                LoanId = request.LoanId,
+                LoanType = request.LoanType,
+                Description = request.Description,
+                InterestRate = request.InterestRate,
+                MaximumAmount = request.MaximumAmount
+            };
+
+            bool result = await loanService.UpdateAsync(loan);
+
+            if(result)
+            {
+                return Ok("Loan updated successfuly!");
+
+            }
+
+            return Conflict("Loan with this type already exists!");
+        }
     }
 }
