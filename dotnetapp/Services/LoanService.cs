@@ -47,4 +47,19 @@ public class LoanService : ILoanService
 
         return false;
     }
+
+    public async Task<bool> DeleteAsync(int loanId)
+    {
+        Loan loanInDb = await dbContext.Loans.FirstOrDefaultAsync(loan => loan.LoanId == loanId);
+
+        if(loanInDb == null)
+        {
+            return false;
+        }
+
+        dbContext.Loans.Remove(loanInDb);
+        await dbContext.SaveChangesAsync();
+
+        return true;
+    }
 }

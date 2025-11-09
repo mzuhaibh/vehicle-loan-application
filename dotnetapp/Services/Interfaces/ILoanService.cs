@@ -9,4 +9,6 @@ public interface ILoanService
     Task<Loan> GetByIdAsync(int loanId);
 
     Task<bool> UpdateAsync(Loan loan);
+
+    Task<bool> DeleteAsync(int loanId);
 }

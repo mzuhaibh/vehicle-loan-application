@@ -17,7 +17,7 @@ namespace dotnetapp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateLoan(CreateLoanRquestDto request)
+        public async Task<IActionResult> CreateLoan(LoanRequestDto request)
         {
             var loan = new Loan
             {
@@ -105,6 +105,19 @@ namespace dotnetapp.Controllers
             }
 
             return Conflict("Loan with this type already exists!");
+        }
+
+        [HttpDelete("/api/loans/{loanId}")]
+        public async Task<IActionResult> DeleteLoan(int loanId)
+        {
+            bool result = await loanService.DeleteAsync(loanId);
+
+            if(result)
+            {
+                return Ok("Loan deleted successfully!");
+            }
+
+            return NotFound("Loan not found!");
         }
     }
 }
