@@ -44,6 +44,16 @@ export class EditloanComponent implements OnInit, OnDestroy {
     }
   }
 
+  deleteLoan() {
+    if(this.loanId) {
+      this.loanService.deleteLoan(this.loanId).subscribe({
+        next: () => {
+          this.router.navigate(['/admin/loans']);
+        }
+      });
+    }
+  }
+
   ngOnDestroy(): void {
     this.paramsSubscription?.unsubscribe();
     this.loanSubscription?.unsubscribe();

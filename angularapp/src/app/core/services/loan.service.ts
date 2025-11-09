@@ -26,4 +26,8 @@ export class LoanService {
   editLoan(loan: Loan): Observable<void> {
     return this.http.put<void>(`${environment.apiBaseUrl}/api/loan`, loan, { responseType: 'text' as 'json' });
   }
+
+  deleteLoan(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiBaseUrl}/api/loans/${id}`, { responseType: 'text' as 'json' });
+  }
 }

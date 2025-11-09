@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LoanService } from '../../services/loan.service';
 import { Subscription } from 'rxjs';
 import { Loan } from '../../models/loan.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-viewloan',
@@ -10,7 +11,7 @@ import { Loan } from '../../models/loan.model';
 })
 export class ViewloanComponent implements OnInit, OnDestroy {
   loans?: Loan[];
-  private getLoansSubscription?: Subscription;
+  private loanSubscription?: Subscription;
   
   constructor(private loanService: LoanService) { }
 
@@ -19,16 +20,15 @@ export class ViewloanComponent implements OnInit, OnDestroy {
   }
 
   getLoans() {
-    this.getLoansSubscription = this.loanService.getLoans()
+    this.loanSubscription = this.loanService.getLoans()
     .subscribe({
       next: (response) => {
         this.loans = response;
-        console.log('Loans retrieved successfully!');
       }
     })
   }
 
   ngOnDestroy(): void {
-    this.getLoansSubscription?.unsubscribe();
+    this.loanSubscription?.unsubscribe();
   }
 }

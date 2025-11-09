@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./createloan.component.css']
 })
 export class CreateloanComponent implements OnDestroy {
-  model: Loan;
+  loan: Loan;
   private createLoanSubscription?: Subscription;
 
   constructor(private loanService: LoanService, private router: Router) {
-    this.model = {
+    this.loan = {
       loanType: '',
       description: '',
       interestRate: 0,
@@ -23,11 +23,10 @@ export class CreateloanComponent implements OnDestroy {
   }
 
   createLoan() {
-    this.createLoanSubscription = this.loanService.createLoan(this.model)
+    this.createLoanSubscription = this.loanService.createLoan(this.loan)
     .subscribe({
-      next: (response) => {
-        console.log('Loan created successfully!');
-        this.router.navigate(['admin/loans']);
+      next: () => {
+        this.router.navigate(['/admin/loans']);
       }
     })
   }
